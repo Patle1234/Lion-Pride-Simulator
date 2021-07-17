@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane id="AnchorPane" fx:id="aPane" prefHeight="600" prefWidth="1200" style="-fx-background-color: #c2b280;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+
+      <GridPane fx:id="gPane" layoutX="14.0" layoutY="0.0">
+
+      </GridPane>
+      <TabPane layoutX="891.0" prefHeight="600.0" prefWidth="309.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Manipulation">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="174.0" style="-fx-background-color: #c29180;">
+                     <children>
+                        <Button layoutX="110.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleAddLion" style="-fx-background-color: #9494b8;" text="Add Lion" />
+                        <Button layoutX="104.0" layoutY="79.0" mnemonicParsing="false" onAction="#handleAddZebra" style="-fx-background-color: #9494b8;" text="Add Zebra" />
+                        <Button layoutX="109.0" layoutY="124.0" mnemonicParsing="false" onAction="#handleAddHunter" style="-fx-background-color: #9494b8;" text="Add Hunter" />
+                        <Button layoutX="102.0" layoutY="190.0" mnemonicParsing="false" onAction="#killAllLion" style="-fx-background-color: #9494b8;" text="Kill All Lions" />
+                        <Button layoutX="101.0" layoutY="225.0" mnemonicParsing="false" onAction="#killAllZebra" style="-fx-background-color: #9494b8;" text="Kill All Zebra" />
+                        <Button layoutX="96.0" layoutY="266.0" mnemonicParsing="false" onAction="#killAllHunter" style="-fx-background-color: #9494b8;" text="Kill All Hunter" />
+                        <Button layoutX="173.0" layoutY="329.0" mnemonicParsing="false" onAction="#chooseDisease" style="-fx-background-color: #9494b8;" text="Disease" />
+                        <Button layoutX="93.0" layoutY="499.0" mnemonicParsing="false" onAction="#harshWeather" style="-fx-background-color: #9494b8;" text="Harsh Weather" />
+                        <Button layoutX="110.0" layoutY="453.0" mnemonicParsing="false" onAction="#drought" style="-fx-background-color: #9494b8;" text="Drought" />
+                        <TextField fx:id="lionField" layoutX="31.0" layoutY="35.0" prefHeight="25.0" prefWidth="69.0" text="1" />
+                        <TextField fx:id="zebraField" layoutX="31.0" layoutY="79.0" prefHeight="25.0" prefWidth="69.0" text="1" />
+                        <TextField fx:id="hunterField" layoutX="31.0" layoutY="124.0" prefHeight="25.0" prefWidth="69.0" text="1" />
+                        <ChoiceBox fx:id="diseaseChoice" layoutX="18.0" layoutY="329.0" prefWidth="150.0" />
+                        <Button layoutX="81.0" layoutY="398.0" mnemonicParsing="false" onAction="#getRidOfDisease" style="-fx-background-color: #9494b8;" text="Get Rid of Diseases" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Graphs">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c29180;">
+                     <children>
+                        <Button layoutX="136.0" layoutY="14.0" mnemonicParsing="false" onAction="#lionGraph" style="-fx-background-color: #9494b8;" text="Lion" />
+                        <LineChart fx:id="lChart" animated="false" layoutX="2.0" layoutY="45.0" prefHeight="150.0" prefWidth="277.0" title="Population of Lions">
+                           <xAxis>
+                              <NumberAxis label="Seconds" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Lions" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <LineChart fx:id="zChart" animated="false" layoutX="2.0" layoutY="244.0" prefHeight="150.0" prefWidth="277.0" title="Population Of Zebra">
+                           <xAxis>
+                              <NumberAxis label="Seconds" prefHeight="46.0" prefWidth="199.0" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Zebras" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Button layoutX="128.0" layoutY="210.0" mnemonicParsing="false" onAction="#zebraGraph" style="-fx-background-color: #9494b8;" text="Zebra" />
+                        <LineChart fx:id="hChart" animated="false" layoutX="2.0" layoutY="436.0" prefHeight="150.0" prefWidth="277.0" title="Population Of Hunters">
+                           <xAxis>
+                              <NumberAxis label="Seconds" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis label="Hunters" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Button layoutX="128.0" layoutY="394.0" mnemonicParsing="false" onAction="#hunterGraph" style="-fx-background-color: #9494b8;" text="Hunter" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="News">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c29180;">
+                     <children>
+                        <ListView fx:id="lionNews" editable="true" layoutY="14.0" prefHeight="171.0" prefWidth="280.0" />
+                        <ListView fx:id="zebraNews" editable="true" layoutX="3.0" layoutY="215.0" prefHeight="171.0" prefWidth="279.0" />
+                        <ListView fx:id="hunterNews" editable="true" layoutY="422.0" prefHeight="171.0" prefWidth="281.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Key">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c29180;">
+                     <children>
+                        <TabPane layoutX="15.0" layoutY="175.0" prefHeight="250.0" prefWidth="250.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Disease">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d610b" height="18.0" layoutX="13.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Label layoutX="40.0" layoutY="16.0" text="Sick Lion, Zebra, or Hunter" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a4f542" height="18.0" layoutX="15.0" layoutY="42.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Label layoutX="47.0" layoutY="43.0" text="Lion Disease" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#42f566" height="18.0" layoutX="15.0" layoutY="68.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#42f5b6" height="18.0" layoutX="15.0" layoutY="101.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Label layoutX="47.0" layoutY="68.0" text="Zebra Disease" />
+                                          <Label layoutX="47.0" layoutY="101.0" text="Hunter Disease" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Lion">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="204.0" prefWidth="200.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="18.0" layoutX="14.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b30000" height="18.0" layoutX="14.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4d0000" height="18.0" layoutX="14.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="BLUE" height="18.0" layoutX="14.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000b3" height="18.0" layoutX="14.0" layoutY="156.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00004d" height="18.0" layoutX="14.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                          <Label layoutX="86.0" layoutY="14.0" text="Female Child Lion" />
+                                          <Label layoutX="86.0" layoutY="44.0" text="Female Adult Lion" />
+                                          <Label layoutX="86.0" layoutY="78.0" text="Female Elder Lion" />
+                                          <Label layoutX="86.0" layoutY="118.0" text="Male Child Lion" />
+                                          <Label layoutX="86.0" layoutY="157.0" text="Male Adult Lion" />
+                                          <Label layoutX="86.0" layoutY="190.0" text="Male Elder Lion" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                             <Tab text="Zebra">
+                                <content>
+                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="204.0" prefWidth="200.0">
+                                      <children>
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#face6e" height="18.0" layoutX="14.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d16c00" height="18.0" layoutX="14.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d15a00" height="18.0" layoutX="14.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4ff85" height="18.0" layoutX="14.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9ce66e" height="18.0" layoutX="14.0" layoutY="156.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#75ba4a" height="18.0" layoutX="14.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Label layoutX="86.0" layoutY="14.0" text="Female Child Zebra" />
+                                         <Label layoutX="86.0" layoutY="44.0" text="Female Adult Zebra" />
+                                         <Label layoutX="86.0" layoutY="78.0" text="Female Elder Zebra" />
+                                         <Label layoutX="86.0" layoutY="118.0" text="Male Child Zebra" />
+                                         <Label layoutX="86.0" layoutY="157.0" text="Male Adult Zebra" />
+                                         <Label layoutX="86.0" layoutY="190.0" text="Male Elder Zebra" />
+                                      </children>
+                                   </AnchorPane>
+                                </content>
+                             </Tab>
+                             <Tab text="Hunter">
+                                <content>
+                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="204.0" prefWidth="200.0">
+                                      <children>
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e823d4" height="18.0" layoutX="14.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ad119e" height="18.0" layoutX="14.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5e0856" height="18.0" layoutX="14.0" layoutY="77.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#874000" height="18.0" layoutX="14.0" layoutY="117.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#613e1e" height="18.0" layoutX="14.0" layoutY="156.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b1c00" height="18.0" layoutX="14.0" layoutY="189.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Label layoutX="86.0" layoutY="14.0" text="Female Child Hunter" />
+                                         <Label layoutX="86.0" layoutY="44.0" text="Female Adult Hunter" />
+                                         <Label layoutX="86.0" layoutY="78.0" text="Female Elder Hunter" />
+                                         <Label layoutX="86.0" layoutY="118.0" text="Male Child Hunter" />
+                                         <Label layoutX="86.0" layoutY="157.0" text="Male Adult Hunter" />
+                                         <Label layoutX="86.0" layoutY="190.0" text="Male Elder Hunter" />
+                                      </children>
+                                   </AnchorPane>
+                                </content>
+                             </Tab>
+                             <Tab text="Other">
+                                <content>
+                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                      <children>
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e6ac00" height="18.0" layoutX="13.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Label layoutX="40.0" layoutY="16.0" text="Groud" />
+                                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009fff" height="18.0" layoutX="13.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="18.0" />
+                                         <Label layoutX="43.0" layoutY="44.0" text="Water" />
+                                      </children>
+                                   </AnchorPane>
+                                </content>
+                             </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+      </tabs>
+      </TabPane>
+      <Button fx:id="startButton" layoutX="337.0" layoutY="211.0" onAction="#handleStart" prefHeight="51.0" prefWidth="160.0" style="-fx-background-color: #9494b8;" text="Start Simulation" />
+   </children>
+</AnchorPane>
